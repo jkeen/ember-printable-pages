@@ -7,7 +7,7 @@
     "pagination",
     "printable-files"
   ],
-  "repository": "https://github.com/forge512/ember-printable-pages",
+  "repository": "https://github.com/jkeen/ember-printable-pages",
   "license": "MIT",
   "author": "Forge 512",
   "directories": {
