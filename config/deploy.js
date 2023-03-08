@@ -4,6 +4,10 @@
 module.exports = function (deployTarget) {
   let ENV = {
     build: {},
+    git: {
+      enabled: true,
+      repo: 'https://github.com/jkeen/ember-printable-pages.git'
+    }
     // include other plugin configuration that applies to all deploy targets here
   };
 
