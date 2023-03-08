@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
 
-      - run: echo "ADDON_DOCS_VERSION_PATH=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      # - run: echo "ADDON_DOCS_VERSION_PATH=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
       - run: echo "ADDON_DOCS_UPDATE_LATEST=true" >> $GITHUB_ENV
         if: contains(github.ref , 'master') == true
