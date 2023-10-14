@@ -1,4 +1,3 @@
-import { A } from "@ember/array";
 import { tracked } from "@glimmer/tracking";
 import Page from "./page";
 import { action } from "@ember/object";
@@ -12,7 +11,6 @@ export default class Section {
   renderDataLength = 0;
   maxItemHeight = null;
   minItemHeight = null;
-  isFullyRendered = false;
   data = [];
 
   constructor(options = {}) {
@@ -50,16 +48,10 @@ export default class Section {
       `${pageIndex} : ${page.startIndex}`
     );
 
-    // this.updateIsFullyRendered();
   }
 
-  // seems like this could be a getter
-  updateIsFullyRendered() {
-    console.log(
-      `Section:${this.id} #updateIsFullyRendered`,
-      this.nextItemIndex >= this.data.length
-    );
-    this.isFullyRendered = this.nextItemIndex >= this.data.length;
+  get isFullyRendered() {
+    return this.nextItemIndex > (this.data.length || 0);
   }
 
   @action
@@ -78,7 +70,6 @@ export default class Section {
       // this.pages = [...this.pages, page];
     }
     return page;
-    // this.updateIsFullyRendered();
   }
 
   @action
@@ -91,7 +82,6 @@ export default class Section {
     } else {
       page.endIndex = page.endIndex + 1;
       this.nextItemIndex = this.nextItemIndex + 1;
-      // this.updateIsFullyRendered();
     }
   }
 

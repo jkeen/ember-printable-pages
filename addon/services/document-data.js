@@ -4,10 +4,12 @@ import Chapter from "../util-models/chapter";
 import Page from "../util-models/page";
 import Section from "../util-models/section";
 import { tracked } from "@glimmer/tracking";
-import { TrackedObject } from "tracked-built-ins";
 
 export default class DocumentData extends Service {
   @tracked reportsMap = {};
+  get reports() {
+    return Object.values(this.reportsMap)
+  }
 
   register(id) {
     window.documentData = this;
